@@ -35,6 +35,15 @@ function Titulo(props) {
 export default function PaginaInicial() {
     const [username, setUsername] = useState("");
     const roteamento = useRouter();
+    let profileImg = (
+        <Image
+            styleSheet={{
+                borderRadius: '50%',
+                marginBottom: '16px',
+            }}
+            src={`https://github.com/${username}.png`}
+        />
+    )
 
     return (
         <>
@@ -122,13 +131,8 @@ export default function PaginaInicial() {
                             minHeight: '240px',
                         }}
                     >
-                        <Image
-                            styleSheet={{
-                                borderRadius: '50%',
-                                marginBottom: '16px',
-                            }}
-                            src={`https://github.com/${username}.png`}
-                        />
+                        {username.length > 1 && profileImg}
+                        
                         <Text
                             variant="body4"
                             styleSheet={{
