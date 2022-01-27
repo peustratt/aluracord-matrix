@@ -9,6 +9,7 @@ export default function ChatPage() {
   // Desafios solo:
   // - Adicionar botão enviar mensagem
   // - Add deleção de mensagens utilizando o método Array.filter();
+  // - Extra dúvida para a live -> como passar um state como props para um route(outra pág)?
 
   /*
   // Usuário
