@@ -30,14 +30,14 @@ export default function ChatPage() {
  function handleNovaMensagem(novaMensagem) {
    const mensagem = {
      id: listaDeMensagens.length + 1,
-     de: 'vanessametonini',
+     de: 'peustratt',
      texto: novaMensagem,
     };
     
     if(mensagem.texto.length > 0 && isNotAllWhiteSpaces(mensagem.texto)) {
-      setListaDeMensagens([
+      setListaDeMensagens((prevListaDeMensagens) => [
       mensagem,
-      ...listaDeMensagens,
+      ...pre,
       ]);
       setMensagem('');}
     }
@@ -206,7 +206,7 @@ function MessageList(props) {
                   display: 'inline-block',
                   marginRight: '8px',
                 }}
-                src={`https://github.com/vanessametonini.png`}
+                src={`https://github.com/${mensagem.de}.png`}
               />
               <Text tag="strong">
                 {mensagem.de}
