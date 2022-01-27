@@ -88,6 +88,7 @@ export default function ChatPage() {
             styleSheet={{
               display: 'flex',
               alignItems: 'center',
+              height: 'fit-content',
             }}
           >
             <TextField
@@ -112,6 +113,7 @@ export default function ChatPage() {
                 padding: '6px 8px',
                 backgroundColor: appConfig.theme.colors.neutrals[800],
                 marginRight: '12px',
+                marginTop: '10px',
                 color: appConfig.theme.colors.neutrals[200],
               }}
             />
@@ -125,6 +127,9 @@ export default function ChatPage() {
                 mainColor: appConfig.theme.colors.primary[500],
                 mainColorLight: appConfig.theme.colors.primary[400],
                 mainColorStrong: appConfig.theme.colors.primary[600],
+              }}
+              styleSheet={{
+                width: '90px',
               }}
             />
           </Box>
@@ -183,6 +188,7 @@ function MessageList(props) {
             <Box
               styleSheet={{
                 marginBottom: '8px',
+                display: 'flex',
               }}
             >
               <Image
@@ -208,6 +214,21 @@ function MessageList(props) {
               >
                 {(new Date().toLocaleDateString())}
               </Text>
+              <Button
+                variant='tertiary'
+                colorVariant='neutral'
+                label='Delete'
+                buttonColors={{
+                  contrastColor: appConfig.theme.colors.neutrals["000"],
+                  mainColor: "white",
+                  mainColorLight: '#ED4337',
+                  mainColorStrong: appConfig.theme.colors.primary[600],
+                }}
+                styleSheet={{
+                  marginLeft: 'auto',
+                  marginRight: '1em',
+                }}
+              />
             </Box>
             {mensagem.texto}
           </Text>
@@ -217,11 +238,11 @@ function MessageList(props) {
   )
 }
 
+// Checa se a string são somente espaços em branco
 function isNotAllWhiteSpaces(string) {
+  let stringArray = []
   for (let letra of string) {
-    if (letra === " ") {
-      return false
-    }
+    stringArray.push(letra)
   }
-  return true
+  return !stringArray.every((letra) => letra === " ")
 }
