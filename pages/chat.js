@@ -28,12 +28,15 @@ export default function ChatPage() {
       texto: novaMensagem,
     };
 
-    setListaDeMensagens([
+
+
+    if(mensagem.texto.length > 0 && isNotAllWhiteSpaces(mensagem.texto)) {
+      setListaDeMensagens([
       mensagem,
       ...listaDeMensagens,
-    ]);
-    setMensagem('');
-  }
+      ]);
+      setMensagem('');}
+    }
 
   return (
     <Box
@@ -110,6 +113,18 @@ export default function ChatPage() {
                 backgroundColor: appConfig.theme.colors.neutrals[800],
                 marginRight: '12px',
                 color: appConfig.theme.colors.neutrals[200],
+              }}
+            />
+            <Button
+              variant='tertiary'
+              colorVariant='neutral'
+              label='Enviar'
+              onClick={() => handleNovaMensagem(mensagem)}
+              buttonColors={{
+                contrastColor: appConfig.theme.colors.neutrals["000"],
+                mainColor: appConfig.theme.colors.primary[500],
+                mainColorLight: appConfig.theme.colors.primary[400],
+                mainColorStrong: appConfig.theme.colors.primary[600],
               }}
             />
           </Box>
@@ -200,4 +215,13 @@ function MessageList(props) {
       })}
     </Box>
   )
+}
+
+function isNotAllWhiteSpaces(string) {
+  for (let letra of string) {
+    if (letra === " ") {
+      return false
+    }
+  }
+  return true
 }
