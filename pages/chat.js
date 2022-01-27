@@ -21,15 +21,18 @@ export default function ChatPage() {
   - [X] Vamos usar o onChange usa o useState (ter if pra caso seja enter pra limpar a variavel)
   - [X] Lista de mensagens 
   */
-  function handleNovaMensagem(novaMensagem) {
-    const mensagem = {
-      id: listaDeMensagens.length + 1,
-      de: 'vanessametonini',
-      texto: novaMensagem,
+ function handleDelete(id) {
+   console.log(listaDeMensagens)
+   setListaDeMensagens(prevMenseng => prevMenseng.filter(menseng => menseng.id !== id))
+ };
+ 
+ function handleNovaMensagem(novaMensagem) {
+   const mensagem = {
+     id: listaDeMensagens.length + 1,
+     de: 'vanessametonini',
+     texto: novaMensagem,
     };
-
-
-
+    
     if(mensagem.texto.length > 0 && isNotAllWhiteSpaces(mensagem.texto)) {
       setListaDeMensagens([
       mensagem,
@@ -75,7 +78,10 @@ export default function ChatPage() {
             padding: '16px',
           }}
         >
-          <MessageList mensagens={listaDeMensagens} />
+          <MessageList 
+            mensagens={listaDeMensagens}
+            handleDelete={handleDelete}
+          />
           {/* {listaDeMensagens.map((mensagemAtual) => {
                         return (
                             <li key={mensagemAtual.id}>
@@ -228,6 +234,7 @@ function MessageList(props) {
                   marginLeft: 'auto',
                   marginRight: '1em',
                 }}
+                onClick={() => props.handleDelete(mensagem.id)}
               />
             </Box>
             {mensagem.texto}
