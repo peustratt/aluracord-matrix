@@ -1,6 +1,6 @@
 function GlobalStyle() {
-    return (
-        <style global jsx>{`
+  return (
+    <style global jsx>{`
       * {
         margin: 0;
         padding: 0;
@@ -22,17 +22,28 @@ function GlobalStyle() {
       #__next > * {
         flex: 1;
       }
+      ::-webkit-scrollbar {
+        width: 9px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(155, 155, 155, 0.5);
+        border-radius: 20px;
+        border: transparent;
+      }
       /* ./App fit Height */ 
     `}</style>
-    );
+  );
 }
 
 // Wrapper que envolve todas as páginas
 export default function MyApp({ Component, pageProps }) {
-    return (
-        <>
-            <GlobalStyle />
-            <Component {...pageProps} />
-        </>
-    )
+  return (
+    <>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </>
+  )
 }

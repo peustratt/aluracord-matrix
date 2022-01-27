@@ -9,7 +9,7 @@ export default function ChatPage() {
   // Desafios solo:
   // - Adicionar botão enviar mensagem
   // - Add deleção de mensagens utilizando o método Array.filter();
-  
+
   /*
   // Usuário
   - Usuário digita no campo textarea
@@ -143,7 +143,7 @@ function MessageList(props) {
     <Box
       tag="ul"
       styleSheet={{
-        overflow: 'scroll',
+        overflow: 'hidden scroll',
         display: 'flex',
         flexDirection: 'column-reverse',
         flex: 1,
