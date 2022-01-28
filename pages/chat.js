@@ -8,22 +8,27 @@ const SUPABASE_URL = 'https://donojqicvarkgazklmcl.supabase.co'
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const listaDeMensagensMock = [
 	{
+		id: 'NiIsInR5cCI6',
 		de: 'lorem',
 		texto: 'random-thing happen everyday'
 	},
 	{
+		id: 'lhdCI6MT',
 		de: 'lorem',
 		texto: 'random-thing happen everyday'
 	},
 	{
+		id: 'ODksInR5cC',
 		de: 'lorem',
 		texto: 'random-thing happen everyday'
 	},
 	{
+		id: 'yb2xlIj',
 		de: 'lorem',
 		texto: 'random-thing happen everyday'
 	},
 	{
+		id: 'weSTpd',
 		de: 'lorem',
 		texto: 'random-thing happen everyday'
 	},
@@ -34,9 +39,8 @@ export default function ChatPage() {
 	const [listaDeMensagens, setListaDeMensagens] = useState(listaDeMensagensMock);
 	const [hasLoaded, setHasLoaded] = useState(() => false)
 
-
 	useEffect(() => {
-		const dadosSupabase = supabaseClient
+		supabaseClient
 			.from('mensagens')
 			.select('*')
 			.order('id', { ascending: false })
@@ -313,8 +317,8 @@ function Spinner(props) {
 
 				<svg width="100%" viewBox="0 0 276 276" fill="none" xmlns="http://www.w3.org/2000/svg" >
 					<g id="spinner">
-						<circle id="bottom" cx="138" cy="138" r="114" stroke="#E4E7EB" stroke-width="18" />
-						<circle id="upper" cx="138" cy="138" r="123" stroke="#57AE5B" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="373 100" style={{ animationDuration: props.speed + "s" }} />
+						<circle id="bottom" cx="138" cy="138" r="114" stroke="#E4E7EB" strokeWidth="18" />
+						<circle id="upper" cx="138" cy="138" r="123" stroke="#57AE5B" strokeWidth="30" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="373 100" style={{ animationDuration: props.speed + "s" }} />
 					</g>
 				</svg>
 				<p>{props.customText}</p>
